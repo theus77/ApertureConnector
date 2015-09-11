@@ -1,26 +1,20 @@
 {
-    "name": "cakephp/debug_kit",
-    "description": "CakePHP Debug Kit",
+    "name": "theus77/aperture_connector",
+    "description": "CakePHP Aperture Plugin/Connector",
     "type": "cakephp-plugin",
-    "keywords": ["cakephp", "debug", "kit"],
-    "homepage": "https://github.com/cakephp/debug_kit",
+    "keywords": ["cakephp", "aperture", "connector"],
+    "homepage": "https://github.com/theus77/aperture_connector",
     "license": "MIT",
     "authors": [
         {
-            "name": "Mark Story",
-            "homepage": "http://mark-story.com",
+            "name": "Mathieu De Keyzer",
+            "homepage": "http://mathieu.dekeyzer.net",
             "role": "Author"
-        },
-        {
-            "name": "CakePHP Community",
-            "homepage": "https://github.com/cakephp/debug_kit/graphs/contributors"
         }
     ],
     "support": {
-        "issues": "https://github.com/cakephp/debug_kit/issues",
-        "forum": "http://stackoverflow.com/tags/cakephp",
-        "irc": "irc://irc.freenode.org/cakephp",
-        "source": "https://github.com/cakephp/debug_kit"
+        "issues": "https://github.com/theus77/aperture_connector/issues",
+        "source": "https://github.com/theus77/aperture_connector"
     },
     "require": {
         "php": ">=5.3.0",
@@ -28,8 +22,8 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.2.x-dev"
+            "dev-master": "1.0"
         },
-        "installer-name": "DebugKit"
+        "installer-name": "ApertureConnector"
     }
 }
