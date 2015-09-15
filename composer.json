@@ -16,12 +16,6 @@
         "issues": "https://github.com/theus77/aperture_connector/issues",
         "source": "https://github.com/theus77/aperture_connector"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Grandt/PHPZip"
-        }
-    ],
     "require": {
         "php": ">=5.3.0",
         "composer/installers": "*",
