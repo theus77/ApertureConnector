@@ -25,13 +25,8 @@
     "require": {
         "php": ">=5.3.0",
         "composer/installers": "*",
-        "Grandt/PHPZip": "2.*"
+        "phpzip/phpzip": "2.0.7"
     },
-    "autoload": {
-		"psr-4": {
-			"PHPZip\\": "plugins/PHPZip/src"
-		}
-	},
     "extra": {
         "branch-alias": {
             "dev-master": "1.2"
