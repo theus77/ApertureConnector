@@ -27,6 +27,11 @@
         "composer/installers": "*",
         "Grandt/PHPZip": "2.*"
     },
+    "autoload": {
+		"psr-4": {
+			"PHPZip\\": "plugins/PHPZip/src"
+		}
+	},
     "extra": {
         "branch-alias": {
             "dev-master": "1.2"
