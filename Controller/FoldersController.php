@@ -1,7 +1,4 @@
 <?php
-//echo Configure::read('libsPath')."PHPZip-master/ZipStream.php";
-//exit;
-include_once(dirname(__FILE__)  . '/../lib/PHPZip-master/ZipStream.php');
 
 class FoldersController extends ApertureConnectorAppController {
 	
