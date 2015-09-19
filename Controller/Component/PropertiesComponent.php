@@ -19,6 +19,11 @@ class PropertiesComponent extends Component
 		$otherProperty = ClassRegistry::init('ApertureConnector.OtherProperty');
 		$exifStringProperty = ClassRegistry::init('ApertureConnector.ExifStringProperty');
 		$exifNumberProperty = ClassRegistry::init('ApertureConnector.ExifNumberProperty');
+
+		$iptcProperty->contain('UniqueString');
+		$otherProperty->contain('UniqueString');
+		$exifStringProperty->contain('UniqueString');
+		
 		foreach ($iptcProperty->findAllByVersionid($versionId) as $key => $property){
 			$out[$property['IptcProperty']['propertyKey']] = $property['UniqueString']['stringProperty'];
 		}
