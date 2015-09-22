@@ -8,6 +8,7 @@ class Folder extends ApertureConnectorAppModel {
 	public $primaryKey = 'uuid';
 	//public $recursive = -1;
 	public $actsAs = array('Containable');
+	public $recursive = -1;
 
 	public $virtualFields = array('encodedUuid' => "replace(folder.uuid, '%', '_')");
 	
