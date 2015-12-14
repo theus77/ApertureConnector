@@ -26,5 +26,10 @@
             "dev-master": "1.2"
         },
         "installer-name": "ApertureConnector"
-    }
+    },
+    "autoload": {
+	    "psr-4": {
+	        "ApertureConnector\\": "src"
+	    }
+	}
 }

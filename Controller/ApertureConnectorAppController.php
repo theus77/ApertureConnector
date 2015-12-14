@@ -5,7 +5,7 @@ App::uses('AppController', 'Controller');
 class ApertureConnectorAppController extends AppController {
 
 	public static function decodeUuid($inUuid){
-		return str_replace('_', '%', $inUuid);
+		return str_replace(' ', '+', str_replace('_', '%', $inUuid));
 	}
 	
 	public static function convertAppleDate($appleDate){

@@ -232,11 +232,15 @@ class ImgController extends ApertureConnectorAppController {
 	 * @radius  	= corner radius in pixels -- default value is false
 	 * @background  = corner colour in rgb hex format -- default value is FFFFFF
 	 */
-	public function viewVersion($uuid) {
+	public function viewVersion($encodedUuid) {
 		// get params
 		//echo $uuid.'<br>';
-		$uuid = $this->decodeUuid($uuid);
-		//echo $uuid;
+		
+		
+		$uuid = $this->decodeUuid($encodedUuid);
+		
+		
+		//echo $uuid." ".$encodedUuid;
 		//exit;
 		
 		$download		= $this->getParam('download', false);
