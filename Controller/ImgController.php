@@ -1,4 +1,7 @@
 <?php
+use Aws\S3\S3Client;
+use Aws\Credentials\CredentialProvider;
+use Psr\Log\Test\DummyTest;
 App::uses('ApertureConnectorAppController', 'ApertureConnector.Controller', 'ApertureConnector.Model');
 /**
  * Imgs Controller
@@ -29,8 +32,54 @@ class ImgController extends ApertureConnectorAppController {
 	}
 	
 	
-	public function viewFile($full_path, $fileId) {
+	public function s3($key){
 		
+
+// 		echo $key;
+// 		exit;
+		
+		$quality		= $this->getParam('quality', false);
+		
+		$s3 = new S3Client([
+				'version' => 'latest',
+				'region'  => 'eu-central-1',
+				'credentials' => CredentialProvider::ini('default', '/home/vagrant/.aws/credentials')
+		]);		
+		
+		$result = $s3->getObject([
+				'Bucket' => 'global-previews',
+				'Key'    => $key
+		]);
+// 		echo $result['Body'];
+
+
+		$data = $this->convertImage($result['Body'], $key);
+
+		if($quality){
+			$mime = 'image/png';
+		}
+		else{
+			$mime = 'image/jpeg';
+		}
+		
+		header("Content-type:$mime");
+		header('Content-Length: ' . strlen($data['data']));
+		echo $data['data'];
+		exit();
+		
+		
+		
+	}
+	
+	
+
+	
+	public function viewFile($full_path, $fileId) {
+		$data = file_get_contents($full_path);
+		return $this->convertImage($data, $fileId);
+	}
+	
+	private function convertImage($data, $fileId) {		
 		$out = array();
 		
 		
@@ -47,7 +96,7 @@ class ImgController extends ApertureConnectorAppController {
 		$watermark		 = $this->getParam('watermark', false);
 		
 		// get size of image
-		$size	= getimagesize($full_path);
+		$size	= getimagesizefromstring($data);
 		// get mimetype
 		$mime	= $size['mime'];
 		
@@ -94,7 +143,20 @@ class ImgController extends ApertureConnectorAppController {
 			//echo 'not cached';exit;
 			
 			//load the source file
-			$image = call_user_func('imagecreatefrom'.$this->types[$size[2]], $full_path);
+			//$image = call_user_func('imagecreatefrom'.$this->types[$size[2]], $full_path);
+			$image = imagecreatefromstring($data);
+			
+// 			header("Content-type:image/jpeg");
+// 			imagejpeg($image);
+			
+// 			exit();
+			
+			
+			
+// 			header("Content-type:$mime");
+// 			header('Content-Length: ' . strlen($data['data']));
+// 			echo $data['data'];
+			
 		
 			// if image modification is necessary
 			if($resize || $radius) {

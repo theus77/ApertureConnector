@@ -9,6 +9,10 @@ class Keyword extends ApertureConnectorAppModel {
 
 	public $parent = 'parentId';
 	
+	public $virtualFields = array(
+			'encodedUuid' => "replace(keyword.uuid, '%', '_')"
+	);
+	
 	public $hasMany = array(
 			'Children' => array(
 					'className' => 'Keyword',
