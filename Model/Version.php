@@ -8,7 +8,7 @@ class Version extends ApertureConnectorAppModel {
 	public $recursive = -1;
 
 	public $virtualFields = array(
-		'encodedUuid' => "replace(version.uuid, '%', '_')",
+		'encodedUuid' => "replace(replace(version.uuid, '+', '-'), '%', '_')",
 		'unixImageDate' => 'version.imageDate + 978303600'
 	);
 	

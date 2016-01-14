@@ -8,7 +8,7 @@ class Album extends ApertureConnectorAppModel {
 	//public $actsAs = array('Containable');
 	
 	public $virtualFields = array(
-			'encodedUuid' => "replace(album.uuid, '%', '_')",
+			'encodedUuid' => "replace(replace(album.uuid, '+', '-'), '%', '_')",
 			//'unixCreateDate' => 'version.createDate + 978303600'
 	);
 }

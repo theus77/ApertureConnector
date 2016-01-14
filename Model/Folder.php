@@ -10,7 +10,7 @@ class Folder extends ApertureConnectorAppModel {
 	public $actsAs = array('Containable');
 	public $recursive = -1;
 
-	public $virtualFields = array('encodedUuid' => "replace(folder.uuid, '%', '_')");
+	public $virtualFields = array('encodedUuid' => "replace(replace(folder.uuid, '+', '-'), '%', '_')");
 	
 	public $hasMany = array(
 			'Version' => array(

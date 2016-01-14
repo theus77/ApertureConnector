@@ -16,7 +16,7 @@ class PLace extends ApertureConnectorAppModel {
 	);
 	
 	public $virtualFields = array(
-			'encodedUuid' => "replace(place.uuid, '%', '_')"
+			'encodedUuid' => "replace(replace(place.uuid, '+', '-'), '%', '_')"
 	);
 
 }
